@@ -55,8 +55,8 @@ IfWinActive,ahk_class mintty
 	winTop:= monBottom - 40
 	if (winHeight > 40)
 	{
-		WinSet, AlwaysOnTop, on, A		
 		WinMove,A,, 0,%winTop%,%winWidth%,40
+		WinSet, AlwaysOnTop, on, A		
 	}
 	else 
 	{
