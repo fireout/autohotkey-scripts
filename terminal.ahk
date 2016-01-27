@@ -60,7 +60,7 @@ IfWinActive,ahk_class mintty
 	}
 	else 
 	{
-		WinMove,A,, 0,0,%winWidth%,%monBottom%
+		WinMove,A,, 0,0,%winWidth%,%winTop%
 		WinSet, AlwaysOnTop, off, A		
 	}
 	return
