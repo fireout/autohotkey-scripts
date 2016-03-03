@@ -29,4 +29,4 @@ Windows positioning shortcut scheme
 Standard Aspect Ratio Windows resizer
 
 ## zindex.ahk
-Enable AlwaysOnTop feature
+Enable AlwaysOnTop feature on Win-Home/End
