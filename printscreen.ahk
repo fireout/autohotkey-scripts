@@ -5,7 +5,8 @@ $VK2C::
    Process, Exist, SnippingTool.exe
    if (!ErrorLevel)
    {
-      run, "C:\Windows\Sysnative\SnippingTool.exe"
+      EnvGet, windir, windir
+      run, %windir%\system32\SnippingTool.exe
 	}
 return
 ;#IfWinNotExist
