@@ -26,21 +26,22 @@ return
 !#::
 IfWinActive,ahk_class mintty
 {
-	WinGetPos,winX,winY,winWidth,winHeight,A
-	monitorNo := GetMonitorAt(winX + winWidth / 2, winY + winHeight / 2)
-	SysGet,mon,Monitor,%monitorNo%
-	winTop:= monBottom - 40
-	if (winHeight > 40)
-	{
-		WinMove,A,, 0,%winTop%,%winWidth%,40
-		WinSet, AlwaysOnTop, on, A		
-	}
-	else 
-	{
-		WinMove,A,, 0,0,%winWidth%,%winTop%
-		WinSet, AlwaysOnTop, off, A		
-	}
-	return
+;	WinGetPos,winX,winY,winWidth,winHeight,A
+;	monitorNo := GetMonitorAt(winX + winWidth / 2, winY + winHeight / 2)
+;	SysGet,mon,Monitor,%monitorNo%
+;	winTop:= monBottom - 40
+;	if (winHeight > 40)
+;	{
+;		WinMove,A,, 0,%winTop%,%winWidth%,40
+;		WinSet, AlwaysOnTop, on, A		
+;	}
+;	else 
+;	{
+;		WinMove,A,, 0,0,%winWidth%,%winTop%
+;		WinSet, AlwaysOnTop, off, A		
+;	}
+;	return
+    WinSet, Bottom,, ahk_class mintty
 }
 else
 {
