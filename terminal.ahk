@@ -46,6 +46,7 @@ IfWinActive,ahk_class mintty
 }
 else
 {
+	WinMinimizeAll 
 	winactivate,ahk_class mintty
 }
 return
