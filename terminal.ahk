@@ -9,6 +9,7 @@ ifwinexist,ahk_class mintty
 	}
 	else
 	{
+		WinMinimizeAll 
 		winmaximize,ahk_class mintty
 		winactivate,ahk_class mintty
 	}
