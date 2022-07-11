@@ -1,10 +1,11 @@
-#include C:\Users\PMartin\Documents\Autohotkey Scripts\COM.ahk
+#include C:\Users\pmartin\Documents\Autohotkey Scripts\COM.ahk
 
 :c*o:newGuid::
 sendraw,% CreateGUID()
 return
+
 :c*o:newName::
-SendRaw, % RandomName(3, 12)
+SendRaw, % RandomName(3, 9)
 return
 
 

@@ -1,6 +1,6 @@
 ;---------------------------------------------------------------
 ;alt-#       resize bash prompt
-!#::
+!1::
 IfWinActive,ahk_class mintty
 {
 	WinShow, ahk_group HiddenWindows
@@ -20,11 +20,11 @@ EnumWindowsProcHide(hwnd, lParam)
 	DetectHiddenWindows, Off
     WinGetTitle, title, ahk_id %hwnd%
     WinGetClass, class, ahk_id %hwnd%
-    if ((title)or(class="Shell_TrayWnd"))
+    if (((title)or(class="Shell_TrayWnd")) and class!="mintty")
     {
         Output .= "Title: " . title . "`tClass: " . class . "`n"
         WinHide, %title% ahk_class %class%
-	GroupAdd, HiddenWindows, ahk_id %hwnd%
+		GroupAdd, HiddenWindows, ahk_id %hwnd%
     }
     return true  ; Tell EnumWindows() to continue until all windows have been enumerated.
 }

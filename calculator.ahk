@@ -6,7 +6,7 @@ ifwinexist,PowerToy Calc
    winactivate,PowerToy Calc
 else
    {
-   run C:\Users\pmartin\Tools\PowerCalc\powercalc.exe
+   run C:\Users\pmartin\App\PowerCalc\powercalc.exe
    winwait,PowerToy Calc
    winactivate,PowerToy Calc
    }

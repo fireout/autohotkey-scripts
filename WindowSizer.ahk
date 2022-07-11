@@ -5,6 +5,15 @@ CoordMode, ToolTip, Relative
 stdWidth := "320,400,640,800,960,1024,1280,1600,1920,2800,3200"
 stdHeight := "240,300,360,480,600,720,768,900,960,1080,1200,2100,2400"
 
+#Home::
+Winset, Alwaysontop, On, A
+
+return
+#End::
+Winset, Alwaysontop, Off, A
+
+return
+
 +#Left::
 WinGetPos,winX,winY,winWidth,winHeight,A
 winWidth := GetStandardRes(StdWidth,winWidth,-1)
