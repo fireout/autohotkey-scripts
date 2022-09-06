@@ -1,12 +1,12 @@
 ;---------------------------------------------------------------
 ;printscreen  Load Screen Clipper
-;#IfWinNotExist ahk_class SnagIt5UI
 $VK2C::
-   Process, Exist, SnippingTool.exe
-   if (!ErrorLevel)
-   {
-      EnvGet, windir, windir
-      run, %windir%\system32\SnippingTool.exe
-	}
+   If !WinExist("Snip & Sketch") {
+      runWait, "C:\Users\Pmartin\AppsShortcut\Snip & Sketch"
+   } else {
+      WinActivate,Snip & Sketch
+   }
+   WinWaitActive,Snip & Sketch
+   
+   Send ^n
 return
-;#IfWinNotExist
