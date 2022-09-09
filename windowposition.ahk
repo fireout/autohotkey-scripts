@@ -1,4 +1,4 @@
-ZoneMove(window,monitor:=0,xp:=0.8,yp:=0.8)
+ZoneMove(window,monitor:=0,xp:=0.8,yp:=0.8,padding:=10)
 {
    SysGet, mCount, MonitorCount
 
@@ -13,11 +13,11 @@ ZoneMove(window,monitor:=0,xp:=0.8,yp:=0.8)
    xpos := xp
    ypos := yp
 
-   targetW := % (targetMonRight - targetMonLeft - 20) * (xpos > 0 ? xpos : 1 + xpos) ;
-   targetH := % (targetMonBottom - targetMonTop - 20) * (ypos > 0 ? ypos : 1 + ypos) ;
+   targetW := % (targetMonRight - targetMonLeft - (padding * 2)) * (xpos > 0 ? xpos : 1 + xpos) ;
+   targetH := % (targetMonBottom - targetMonTop - (padding * 2)) * (ypos > 0 ? ypos : 1 + ypos) ;
 
-   targetX := % xpos < 0 ? (targetMonRight - targetW - 10) : targetMonLeft + 10 ;
-   targetY := % ypos < 0 ? (targetMonBottom - targetH - 10) : targetMonTop + 10 ;
+   targetX := % xpos < 0 ? (targetMonRight - targetW - padding) : targetMonLeft + padding ;
+   targetY := % ypos < 0 ? (targetMonBottom - targetH - padding) : targetMonTop + padding ;
 
    WinMove,%window%,,%targetX%,%targetY%,%targetW%,%targetH%
 }
