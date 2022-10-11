@@ -19,6 +19,10 @@ ZoneMove(window,monitor:=0,xp:=0.8,yp:=0.8,padding:=10)
    targetX := % xpos < 0 ? (targetMonRight - targetW - padding) : targetMonLeft + padding ;
    targetY := % ypos < 0 ? (targetMonBottom - targetH - padding) : targetMonTop + padding ;
 
+   WinGet,state,MinMax,%window%
+   if(%state% != 0) {
+      WinRestore,%window%
+   }
    WinMove,%window%,,%targetX%,%targetY%,%targetW%,%targetH%
 }
 /*
