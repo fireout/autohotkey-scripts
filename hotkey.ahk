@@ -1,5 +1,6 @@
 SetTitleMatchMode RegEx
 
+Volume_Mute::
 F13::
 last_found:=WinActive("A")
 if WinExist(".*Microsoft Teams$") {
@@ -17,12 +18,15 @@ return
 
 F14::
 ;#last_found:=WinActive("A")
-ZoneMove("A",0,0.75,0.75)
+WinRestore,A
+ZoneMove("A",0,1,1)
+WinMaximize,A
 return
 
 +F14::
 ;#last_found:=WinActive("A")
-ZoneMove("A",3,1,1)
+WinRestore,"A"
+ZoneMove("A",2,1,0.8)
 return
 
 F24::
@@ -31,7 +35,7 @@ if !WinExist("ahk_exe firefox.exe") {
 	WinWait, ahk_exe firefox.exe
 }
 WinRestore,ahk_exe firefox.exe
-ZoneMove("ahk_exe firefox.exe",0,0.75,0.75)
+ZoneMove("ahk_exe firefox.exe",3,-0.35,0.75)
 WinActivate
 return
 
@@ -41,7 +45,8 @@ if !WinExist("ahk_class CASCADIA_HOSTING_WINDOW_CLASS") {
 	WinWait,ahk_class CASCADIA_HOSTING_WINDOW_CLASS
 }
 WinRestore,ahk_class CASCADIA_HOSTING_WINDOW_CLASS
-ZoneMove("ahk_class CASCADIA_HOSTING_WINDOW_CLASS",0,1,-0.75,-8)
+ZoneMove("ahk_class CASCADIA_HOSTING_WINDOW_CLASS",0,0,0,0)
+WinMaximize,ahk_class CASCADIA_HOSTING_WINDOW_CLASS
 WinActivate,ahk_class CASCADIA_HOSTING_WINDOW_CLASS
 return
 
@@ -51,8 +56,7 @@ if !WinExist("ahk_class CASCADIA_HOSTING_WINDOW_CLASS") {
 	WinWait,ahk_class CASCADIA_HOSTING_WINDOW_CLASS
 }
 WinRestore,ahk_class CASCADIA_HOSTING_WINDOW_CLASS
-ZoneMove("ahk_class CASCADIA_HOSTING_WINDOW_CLASS",3,1,1,15)
-WinMaximize,ahk_class CASCADIA_HOSTING_WINDOW_CLASS
+ZoneMove("ahk_class CASCADIA_HOSTING_WINDOW_CLASS",2,0,-0.80,15)
 WinActivate,ahk_class CASCADIA_HOSTING_WINDOW_CLASS
 return
 
@@ -62,7 +66,7 @@ if !WinExist("OneNote for Windows 10") {
 	WinWait,OneNote for Windows 10
 }
 WinRestore,OneNote for Windows 10
-ZoneMove("OneNote for Windows 10",0,-0.75,0.75)
+ZoneMove("OneNote for Windows 10",2,0.35,0.75)
 WinActivate,OneNote for Windows 10
 return
 
@@ -72,7 +76,11 @@ if !WinExist("OneNote for Windows 10") {
 	WinWait,OneNote for Windows 10
 }
 WinRestore,OneNote for Windows 10
-ZoneMove("OneNote for Windows 10",3,1,1)
+ZoneMove("OneNote for Windows 10",0,1,1)
 WinMaximize,OneNote for Windows 10
 WinActivate,OneNote for Windows 10
 return
+
+#T::WinSet,TopMost,On, 
+
+!End::WinSet, AlwaysOnTop, Off
