@@ -1,34 +1,35 @@
 ZoneMove(window,monitor:=0,xp:=0.8,yp:=0.8,padding:=10)
 {
-   SysGet, mCount, MonitorCount
+   mCount := MonitorGetCount()
+   monId := MonitorGetPrimary()
 
-   if (monId > monitor)
+   if (monitor > mCount)
    {
-      MsgBox, Error
+      MsgBox "Error" monId " - " monitor
       return
    }
 
-   SysGet, targetMon, MonitorWorkArea, %monitor%
+   MonitorGetWorkArea(monitor, &targetMonLeft,&targetMonTop, &targetMonRight, &targetMonBottom)
 
    xpos := xp
    ypos := yp
 
-   targetW := % (targetMonRight - targetMonLeft - (padding * 2)) * (xpos > 0 ? xpos : 1 + xpos) ;
-   targetH := % (targetMonBottom - targetMonTop - (padding * 2)) * (ypos > 0 ? ypos : 1 + ypos) ;
+   targetW := ( targetMonRight - targetMonLeft - (padding * 2)) * (xpos > 0 ? xpos : 1 + xpos)
+   targetH := ( targetMonBottom - targetMonTop - (padding * 2)) * (ypos > 0 ? ypos : 1 + ypos)
 
-   targetX := % xpos < 0 ? (targetMonRight - targetW - padding) : targetMonLeft + padding ;
-   targetY := % ypos < 0 ? (targetMonBottom - targetH - padding) : targetMonTop + padding ;
+   targetX := xpos < 0 ? (targetMonRight - targetW - padding) : targetMonLeft + padding
+   targetY := ypos < 0 ? (targetMonBottom - targetH - padding) : targetMonTop + padding
 
-   WinGet,state,MinMax,%window%
-   if(%state% != 0) {
-      WinRestore,%window%
+   state := WinGetMinMax(window)
+   if( state != 0) {
+      WinRestore window
    }
-   WinMove,%window%,,%targetX%,%targetY%,%targetW%,%targetH%
+   WinMove(targetX,targetY,targetW,targetH)
 }
 /*
 
 
-SetTitleMatchMode, 2
+SetTitleMatchMode 2
 
 window := A_Args.Length() > 0 ? A_Args[1] : "A"
 monitor := A_Args.Length() > 1 ? A_Args[2] : 0
