@@ -20,6 +20,29 @@ F13::
 	return
 }
 
+F14::
+{
+	if !WinExist(" - Slack") {
+		Run "C:\Users\PMartin\AppsShortcut\Slack"
+		WinWait " - Slack"
+	}
+	WinRestore " - Slack"
+	ZoneMove(" - Slack", 2, 1, -0.70)
+	WinActivate " - Slack"
+}
+
++F14::
+{
+	if !WinExist(" - Slack") {
+		Run "C:\Users\PMartin\AppsShortcut\Slack"
+		WinWait " - Slack"
+	}
+	WinRestore " - Slack"
+	ZoneMove(" - Slack", 3, 0.75,0.75)
+	WinActivate " - Slack"
+	WinMaximize " - Slack"
+}
+
 F21::
 {
 	if !WinExist("OneNote for Windows 10") {
